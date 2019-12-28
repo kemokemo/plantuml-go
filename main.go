@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"testing"
 )
 
 const (
@@ -24,6 +25,7 @@ var (
 )
 
 func init() {
+	testing.Init() // please use go 1.13 or later
 	flag.StringVar(&opt.server, "s", "http://plantuml.com/plantuml", "Plantuml `server` address. Used when generating link or extracting output")
 	flag.StringVar(&opt.format, "f", "png", "Output `format` type. (Options: png,txt,svg)")
 	flag.StringVar(&opt.style, "o", "text", "Indicates if `output` style. (Options: text, link, output)")

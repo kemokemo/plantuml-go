@@ -11,3 +11,5 @@ vendor/*/
 
 .DS_Store
 launch.json
+
+test-files/test.png
