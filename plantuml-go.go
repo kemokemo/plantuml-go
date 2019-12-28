@@ -64,7 +64,7 @@ func base64Encode(input []byte) string {
 
 // getImage from the PlantUML Server with the url and writes the
 // image data to the w writer.
-func getImage(url string, w io.Writer) error {
+func getImage(w io.Writer, url string) error {
 	res, err := http.Get(url)
 	if err != nil {
 		return fmt.Errorf("failed to get image from %s:%s", url, err)
@@ -125,11 +125,17 @@ func getImageWithOneStream(opt option, data []byte, w io.Writer) error {
 
 	switch opt.style {
 	case styleTxt:
-		fmt.Println(encorded)
+		_, err = fmt.Fprintln(w, encorded)
+		if err != nil {
+			return err
+		}
 	case styleLink:
-		fmt.Println(link)
+		_, err = fmt.Fprintln(w, link)
+		if err != nil {
+			return err
+		}
 	case styleOutput:
-		err := getImage(link, w)
+		err := getImage(w, link)
 		if err != nil {
 			return fmt.Errorf("failed to get image from %s:%s", link, err)
 		}
