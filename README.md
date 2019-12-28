@@ -1,7 +1,9 @@
 # PlantUML Go Client
+
 This project provides a handy CLI for PlantUML users. 
 
-## Motivation 
+## Motivation
+
 * Self-contained tool
 * Non-Java
 * Able to work with hosted PlantUML server
@@ -43,7 +45,7 @@ plantuml-go -f png -o output my-uml.puml
 
 Above command will create a `my-uml.png` file next to `my-uml.puml` file (same director).
  
-##ToDo
-* CD/CI
+## ToDo
+
+* CI/CD
 * Release
-* Improve Test Coverage
